@@ -1,4 +1,4 @@
-package Java_Desgin_Pattern.desginPattern_AbstractFactoryMethod;
+package com.hwq.fundamment.Java_Desgin_Pattern.desginPattern_AbstractFactoryMethod;
 
 
 public class WhiteMaleHman extends AbstractWhiteHuman {

@@ -1,5 +1,6 @@
 package com.hwq.fundamment.Think_In_Java.Collections;
-import Think_In_Java.Genericity.Generator;
+
+import com.hwq.fundamment.Think_In_Java.Genericity.Generator;
 
 import java.util.*;
 /**

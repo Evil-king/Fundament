@@ -104,10 +104,8 @@ public class ClassUtils {
             }
             return field.getAnnotation(annotationClass);
         } catch (SecurityException e) {
-            e.printStackTrace();
             throw new Exception("access error: field[" + fieldName + "] in " + clazz.getCanonicalName(), e);
         } catch (NoSuchFieldException e) {
-            e.printStackTrace();
             throw new Exception("no such field[" + fieldName + "] in " + clazz.getCanonicalName());
         }
     }
@@ -212,7 +210,6 @@ public class ClassUtils {
                                             // 添加到classes
                                             classes.add(Class.forName(packageName + '.' + className));
                                         } catch (ClassNotFoundException e) {
-                                            e.printStackTrace();
                                             // log
                                             // .error("添加用户自定义视图类错误 找不到此类的.class文件");
                                         }
@@ -222,12 +219,12 @@ public class ClassUtils {
                         }
                     } catch (IOException e) {
                         // log.error("在扫描用户定义视图时从jar包获取文件出错");
+                        e.printStackTrace();
                         throw new RuntimeException(e);
                     }
                 }
             }
         } catch (IOException e) {
-            e.printStackTrace();
         }
 
         return classes;

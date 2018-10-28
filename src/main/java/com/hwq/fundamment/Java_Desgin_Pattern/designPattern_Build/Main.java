@@ -1,4 +1,5 @@
-package Java_Desgin_Pattern.designPattern_Build;
+package com.hwq.fundamment.Java_Desgin_Pattern.designPattern_Build;
+
 
 
 /**

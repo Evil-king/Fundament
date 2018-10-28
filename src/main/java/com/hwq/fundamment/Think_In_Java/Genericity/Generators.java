@@ -17,7 +17,7 @@ public class Generators {
     Collection<Integer> fnumbers = fill(
       new ArrayList<Integer>(), new Fibonacci(), 12);
     for(int i : fnumbers)
-      System.out.print(i + ", ");
+      System.out.println(i + ", ");
   }
 } /* Output:
 Americano 0

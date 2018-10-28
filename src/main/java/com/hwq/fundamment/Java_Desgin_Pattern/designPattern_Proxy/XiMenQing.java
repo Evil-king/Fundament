@@ -5,6 +5,7 @@ package com.hwq.fundamment.Java_Desgin_Pattern.designPattern_Proxy;
 public class XiMenQing {
 
     public static void main(String[] args) {
+
         //把王婆叫出来
         WangPo wangPo = new WangPo();
 

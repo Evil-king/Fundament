@@ -19,6 +19,6 @@ public class RandomList<T> {
                 "the lazy brown dog").split(" "))
             rs.add(s);
         for(int i = 0; i < 11; i++)
-            System.out.print(rs.select() + " ");
+            System.out.println(rs.select() + " ");
     }
 }

@@ -8,7 +8,7 @@ import java.util.Random;
  * @date 2018/10/26
  */
 public class CoffeeGenerator implements Generator<Coffee>, Iterable<Coffee> {
-        private Class[] types = { Think_In_Java.Genericity.Latte.class, Think_In_Java.Genericity.Mocha.class,
+        private Class[] types = { Latte.class, Mocha.class,
                 Cappuccino.class, Americano.class, Breve.class, };
         private static Random rand = new Random(47);
   public CoffeeGenerator() {}

@@ -14,7 +14,6 @@ public abstract class AbstractHumanFactory implements HumanFactory {
                 human = (Human) Class.forName(humanEnum.getValue()).newInstance();
             } catch (Exception e) {
                 //因为使用enum，这种异常情况不会产生，除非你的enum有问题
-                e.printStackTrace();
             }
         }
         return human;
