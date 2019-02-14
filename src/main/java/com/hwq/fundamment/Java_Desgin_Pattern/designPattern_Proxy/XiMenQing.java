@@ -6,6 +6,7 @@ public class XiMenQing {
 
     public static void main(String[] args) {
 
+
         //把王婆叫出来
         WangPo wangPo = new WangPo();
 
@@ -13,11 +14,11 @@ public class XiMenQing {
         wangPo.makeEyesWithMen();//虽然表面上是王婆在做，实际是她的代理潘金莲在做
         wangPo.happyWithMan();
 
-        JiaShi jiaShi = new JiaShi();
-        //还是王婆做代理
-        wangPo = new WangPo(jiaShi);
-
-        wangPo.happyWithMan();
-        wangPo.makeEyesWithMen();
+//        JiaShi jiaShi = new JiaShi();
+//        //还是王婆做代理
+//        wangPo = new WangPo(jiaShi);
+//
+//        wangPo.happyWithMan();
+//        wangPo.makeEyesWithMen();
     }
 }
