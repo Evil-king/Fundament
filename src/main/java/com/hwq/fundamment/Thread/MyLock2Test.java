@@ -34,6 +34,13 @@ public class MyLock2Test {
     public void b(){
         lock.lock();
         System.out.println("b");
+        c();
+        lock.unlock();
+    }
+
+    public void c(){
+        lock.lock();
+        System.out.println("c");
         lock.unlock();
     }
 

@@ -20,25 +20,21 @@ public class MyLock2 implements Lock {
     private class Helper extends AbstractQueuedSynchronizer{
         @Override
         protected boolean tryAcquire(int arg) {
-            // 如果第一个线程进来，可以拿到锁，因此我们返回true
-
-            // 如果其他线程进来，拿不到锁，则返回false,有种特例，如果当前进来的线程和当前保存的线程是同一个线程，则可以拿到锁，但有代价，要更新状态值
-
-            // 如何判断是第一个线程进来还是其他线程进来呢？jdk文档中的这句话
-            //此类的设计目标是成为依靠单个原子 int 值来表示状态的大多数同步器的一个有用基础
-            //只是为了获得同步而只追踪使用 getState()、setState(int) 和 compareAndSetState(int, int) 方法来操作以原子方式更新的 int 值。
-            int state = getState();
-
+            /**
+             * 如果第一个线程进来，可以拿到锁，因此我们可以返回true
+             * 如果第二个线程进来，拿不到锁，返回false，
+             * 有种特例，如果当前进来的线程和占用排它锁的线程是同一个线程(重入)，则允许可以拿到锁，但是要更新状态值
+             * */
             Thread t = Thread.currentThread();
-
-            if(state == 0){
-                if(compareAndSetState(0,arg)){
-                    setExclusiveOwnerThread(t);
+            //如何判断是第一个线程进来还是其他线程进来
+            int state = getState();//拿到状态
+            if(state==0) {//如果状态等于0 ，无状态（初始状态）
+                if(compareAndSetState(0,arg)) {// 如果状态等于0 ，将状态设置为arg
+                    setExclusiveOwnerThread(t);//设置占用排它锁的线程是当前线程
                     return true;
                 }
-            }
-            else if(getExclusiveOwnerThread() == t){
-                setState(state + 1);
+            }else if(getExclusiveOwnerThread()==t){// 重入
+                setState(state+1);//更新状态值
                 return true;
             }
             return false;
@@ -47,9 +43,9 @@ public class MyLock2 implements Lock {
         @Override
         protected boolean tryRelease(int arg) {
             // 锁的获取和释放肯定是一一对应的，那么调用此方法的线程一定是当前线程
-//            if(Thread.currentThread() != getExclusiveOwnerThread()){
-//                throw new RuntimeException();
-//            }
+            if(Thread.currentThread() != getExclusiveOwnerThread()){
+                throw new RuntimeException();
+            }
             int state = getState() - arg;
 
             boolean flag = false;
@@ -70,7 +66,7 @@ public class MyLock2 implements Lock {
 
     @Override
     public void lock() {
-        helper.tryAcquire(1);
+        helper.acquire(1);
     }
 
     @Override
@@ -85,7 +81,7 @@ public class MyLock2 implements Lock {
 
     @Override
     public boolean tryLock(long time, TimeUnit unit) throws InterruptedException {
-        return helper.tryAcquireSharedNanos(1,unit.toNanos(time));
+        return helper.tryAcquireNanos(1,unit.toNanos(time));
     }
 
     @Override
