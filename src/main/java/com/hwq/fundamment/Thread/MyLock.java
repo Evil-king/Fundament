@@ -8,7 +8,7 @@ import java.util.concurrent.locks.Lock;
  * @author hwq
  * @date 2019/04/07
  * <p>
- *     手写实现可重入锁,这里只是实现lock,unlock方法
+ * 手写实现可重入锁,这里只是实现lock,unlock方法
  * </p>
  */
 public class MyLock implements Lock {
@@ -23,7 +23,7 @@ public class MyLock implements Lock {
     public synchronized void lock() {
         Thread currentThread = Thread.currentThread();
         //第一个进来的线程不让它等待
-        while (isLocked && currentThread != lockBy){
+        while (isLocked && currentThread != lockBy) {
             try {
                 wait();
             } catch (InterruptedException e) {
@@ -37,10 +37,10 @@ public class MyLock implements Lock {
 
     @Override
     public synchronized void unlock() {
-        if(lockBy == Thread.currentThread()){
+        if (lockBy == Thread.currentThread()) {
             lockCount--;
 
-            if(lockCount == 0){
+            if (lockCount == 0) {
                 isLocked = false;
                 notify();
             }

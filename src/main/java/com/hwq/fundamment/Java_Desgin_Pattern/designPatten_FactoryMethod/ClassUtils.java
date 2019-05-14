@@ -19,17 +19,14 @@ import java.util.jar.JarFile;
 
 /**
  * Class类工具
- *
  */
 public class ClassUtils {
 
     /**
      * 是否有注解
      *
-     * @param clazz
-     *            a {@link Class} object.
-     * @param annotationClass
-     *            a {@link Class} object.
+     * @param clazz           a {@link Class} object.
+     * @param annotationClass a {@link Class} object.
      * @return a boolean.
      */
     public static boolean hasClassAnnotation(Class<?> clazz, Class<? extends Annotation> annotationClass) {
@@ -39,13 +36,10 @@ public class ClassUtils {
     /**
      * 是否有注解
      *
-     * @param clazz
-     *            a {@link Class} object.
-     * @param annotationClass
-     *            a {@link Class} object.
-     * @param fieldName
-     *            a {@link String} object.
-     *             if any.
+     * @param clazz           a {@link Class} object.
+     * @param annotationClass a {@link Class} object.
+     * @param fieldName       a {@link String} object.
+     *                        if any.
      * @return a boolean.
      */
     public static boolean hasFieldAnnotation(Class<?> clazz,
@@ -56,14 +50,10 @@ public class ClassUtils {
     /**
      * 是否有注解
      *
-     * @param clazz
-     *            a {@link Class} object.
-     * @param annotationClass
-     *            a {@link Class} object.
-     * @param methodName
-     *            a {@link String} object.
-     * @param paramType
-     *            a {@link Class} object.
+     * @param clazz           a {@link Class} object.
+     * @param annotationClass a {@link Class} object.
+     * @param methodName      a {@link String} object.
+     * @param paramType       a {@link Class} object.
      * @return a boolean.
      */
     public static boolean hasMethodAnnotation(Class<?> clazz,
@@ -74,10 +64,8 @@ public class ClassUtils {
     /**
      * 获取类注解
      *
-     * @param clazz
-     *            类
-     * @param annotationClass
-     *            注解类
+     * @param clazz           类
+     * @param annotationClass 注解类
      * @return a A object.
      */
     public static <A extends Annotation> A getClassAnnotation(Class<?> clazz, Class<A> annotationClass) {
@@ -87,12 +75,9 @@ public class ClassUtils {
     /**
      * 获取类成员注解
      *
-     * @param clazz
-     *            类
-     * @param annotationClass
-     *            注解类
-     * @param fieldName
-     *            成员属性名
+     * @param clazz           类
+     * @param annotationClass 注解类
+     * @param fieldName       成员属性名
      * @return a A object.
      */
     public static <A extends Annotation> A getFieldAnnotation(Class<?> clazz,
@@ -113,14 +98,10 @@ public class ClassUtils {
     /**
      * 获取类方法上的注解
      *
-     * @param clazz
-     *            类
-     * @param annotationClass
-     *            注解类
-     * @param methodName
-     *            方法名
-     * @param paramType
-     *            方法参数
+     * @param clazz           类
+     * @param annotationClass 注解类
+     * @param methodName      方法名
+     * @param paramType       方法参数
      * @return a A object.
      */
     public static <A extends Annotation> A getMethodAnnotation(Class<?> clazz,
@@ -144,10 +125,8 @@ public class ClassUtils {
     /**
      * 从包package中获取所有的Class
      *
-     * @param pagekageName
-     *            包名
-     * @param recursive
-     *            是否递归
+     * @param pagekageName 包名
+     * @param recursive    是否递归
      * @return a {@link Set} object.
      */
     public static Set<Class<?>> getClasses(String pagekageName, boolean recursive) {
@@ -233,14 +212,10 @@ public class ClassUtils {
     /**
      * 以文件的形式来获取包下的所有Class
      *
-     * @param packageName
-     *            a {@link String} object.
-     * @param packagePath
-     *            a {@link String} object.
-     * @param recursive
-     *            a boolean.
-     * @param classes
-     *            a {@link Set} object.
+     * @param packageName a {@link String} object.
+     * @param packagePath a {@link String} object.
+     * @param recursive   a boolean.
+     * @param classes     a {@link Set} object.
      */
     public static void findAndAddClassesInPackageByFile(String packageName,
                                                         String packagePath, final boolean recursive, Set<Class<?>> classes) {
@@ -282,8 +257,7 @@ public class ClassUtils {
      * Description：给一个接口，返回这个接口同一个包下的所有实现类
      * </p>
      *
-     * @param c
-     *            a {@link Class} object.
+     * @param c a {@link Class} object.
      * @return a {@link List} object.
      */
     public static List<Class<?>> getAllClassByInterface(Class<?> c) {

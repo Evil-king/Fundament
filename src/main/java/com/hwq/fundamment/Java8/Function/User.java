@@ -17,19 +17,19 @@ public class User {
 
     }
 
-    public static User create(Supplier<User> supplier){
+    public static User create(Supplier<User> supplier) {
         return supplier.get();
     }
 
-    public static void updateUsername(User user){
+    public static void updateUsername(User user) {
         user.setName(user.getName() + "update");
     }
 
-    public void updateAge(){
+    public void updateAge() {
         this.setAge(this.getAge() + 10);
     }
 
-    public void changeAge(User user){
+    public void changeAge(User user) {
         user.setAge(user.getAge() + 10);
     }
 

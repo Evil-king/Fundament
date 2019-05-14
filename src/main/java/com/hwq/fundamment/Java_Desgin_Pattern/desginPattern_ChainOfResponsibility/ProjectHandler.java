@@ -5,7 +5,7 @@ package com.hwq.fundamment.Java_Desgin_Pattern.desginPattern_ChainOfResponsibili
  * @author hwq
  * @date 2018/10/18
  * <p>
- *     项目经理
+ * 项目经理
  * </p>
  */
 public class ProjectHandler extends ConsumeHandler {

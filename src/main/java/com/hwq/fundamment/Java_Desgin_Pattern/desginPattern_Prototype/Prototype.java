@@ -4,7 +4,7 @@ package com.hwq.fundamment.Java_Desgin_Pattern.desginPattern_Prototype;
  * @author hwq
  * @date 2019/04/05
  * <p>
- *     原型类
+ * 原型类
  * </p>
  */
 public abstract class Prototype {

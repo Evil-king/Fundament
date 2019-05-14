@@ -16,9 +16,11 @@ public class BigEgg2 extends Egg2 {
         }
 
     }
+
     public BigEgg2() {
         insertYolk(new Yolk());
     }
+
     public static void main(String[] args) {
         Egg2 e2 = new Egg2();
         e2.g();

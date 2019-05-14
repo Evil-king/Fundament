@@ -4,11 +4,11 @@ package com.hwq.fundamment.Thread;
  * @author hwq
  * @date 2019/04/13
  * <p>
- *     消费者
- *     wait/notify实现的生产和消费者
+ * 消费者
+ * wait/notify实现的生产和消费者
  * </p>
  */
-public class Customer implements Runnable{
+public class Customer implements Runnable {
 
     private MallDemo mallDemo;
 

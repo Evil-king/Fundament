@@ -7,7 +7,7 @@ package com.hwq.fundamment.Java_Desgin_Pattern.designPattern_Bridge;
  */
 public class Client {
 
-    public static void main(String[] args){
+    public static void main(String[] args) {
         HouserCrop houserCrop = new HouserCrop(new House());
 //        houserCrop.prodcut();
 //        houserCrop.sell();

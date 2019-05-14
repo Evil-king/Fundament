@@ -9,18 +9,19 @@ public class Context {
 
     private TStrategy tStrategy;
 
-    public Context(IStrategy iStrategy){
-        this.iStrategy =iStrategy;
-    }
-    public Context(TStrategy tStrategy){
-        this.tStrategy =tStrategy;
+    public Context(IStrategy iStrategy) {
+        this.iStrategy = iStrategy;
     }
 
-    public void operate(){
+    public Context(TStrategy tStrategy) {
+        this.tStrategy = tStrategy;
+    }
+
+    public void operate() {
         this.iStrategy.operate();
     }
 
-    public void run(){
+    public void run() {
         this.tStrategy.run();
     }
 }

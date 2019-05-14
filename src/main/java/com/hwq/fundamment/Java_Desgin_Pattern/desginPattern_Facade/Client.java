@@ -14,6 +14,6 @@ public class Client {
 
         String address = "The Seven world";
 
-        modenPostOffice.sendLetter(context,address);
+        modenPostOffice.sendLetter(context, address);
     }
 }

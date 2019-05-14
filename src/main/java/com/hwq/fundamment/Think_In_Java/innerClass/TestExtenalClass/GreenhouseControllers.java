@@ -43,7 +43,7 @@ public class GreenhouseControllers extends Controller {
 
     public class WaterOn extends Event {
 
-        public WaterOn (long delayTime) {
+        public WaterOn(long delayTime) {
             super(delayTime);
         }
 
@@ -59,7 +59,7 @@ public class GreenhouseControllers extends Controller {
 
     public class WaterOff extends Event {
 
-        public WaterOff (long delayTime) {
+        public WaterOff(long delayTime) {
             super(delayTime);
         }
 

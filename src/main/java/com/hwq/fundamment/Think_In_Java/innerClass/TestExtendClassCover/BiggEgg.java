@@ -11,7 +11,8 @@ public class BiggEgg extends Egg {
             System.out.println("BiggEgg.Yolk()");
         }
     }
-    public static void main(String[] args){
+
+    public static void main(String[] args) {
         new BiggEgg();
     }
 }

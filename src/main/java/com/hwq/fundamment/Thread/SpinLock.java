@@ -65,7 +65,7 @@ public class SpinLock {
             }
         }).start();
 
-        while (Thread.activeCount() != 1){
+        while (Thread.activeCount() != 1) {
             //自旋
         }
         System.out.println("所有线程执行完毕了");

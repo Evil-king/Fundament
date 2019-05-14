@@ -4,8 +4,8 @@ package com.hwq.fundamment.Thread;
  * @author hwq
  * @date 2019/04/13
  * <p>
- *     商品
- *     wait/notify实现的生产和消费者
+ * 商品
+ * wait/notify实现的生产和消费者
  * </p>
  */
 public class MallDemo {
@@ -29,7 +29,7 @@ public class MallDemo {
     }
 
     public synchronized void customer() {
-        while(count <= 0){
+        while (count <= 0) {
             try {
                 System.out.println(Thread.currentThread().getName() + "库存为零，消费者等待....");
                 wait();

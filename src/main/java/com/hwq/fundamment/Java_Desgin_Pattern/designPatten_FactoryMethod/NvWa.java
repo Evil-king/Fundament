@@ -20,7 +20,7 @@ public class NvWa {
 //        blackHuman.cry();
 
         //女娲烦躁了，爱是啥人种就是啥人种，烧把
-        for(int i=0;i<100;i++){
+        for (int i = 0; i < 100; i++) {
             System.out.println("-------------随机产生人种了-------------");
             Human human = HumanFactory.createHuman();
             human.cry();

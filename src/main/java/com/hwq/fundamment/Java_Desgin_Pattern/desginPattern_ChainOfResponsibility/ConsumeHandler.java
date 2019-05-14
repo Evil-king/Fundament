@@ -16,6 +16,8 @@ public abstract class ConsumeHandler {
         this.nextHandler = nextHandler;
     }
 
-    /** user申请人 free报销费用 */
+    /**
+     * user申请人 free报销费用
+     */
     public abstract void doHandler(String user, double free);
 }

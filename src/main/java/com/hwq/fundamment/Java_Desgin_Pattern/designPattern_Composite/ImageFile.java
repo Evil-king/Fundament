@@ -5,7 +5,7 @@ package com.hwq.fundamment.Java_Desgin_Pattern.designPattern_Composite;
  * @author hwq
  * @date 2018/10/17
  * <p>
- *     图像文件类：叶子构件
+ * 图像文件类：叶子构件
  * </p>
  */
 public class ImageFile extends AbstractFile {

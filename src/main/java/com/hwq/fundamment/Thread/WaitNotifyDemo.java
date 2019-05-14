@@ -4,18 +4,18 @@ package com.hwq.fundamment.Thread;
  * @author hwq
  * @date 2019/04/13
  * <p>
- *     wait\notify
+ * wait\notify
  * </p>
  */
 public class WaitNotifyDemo {
 
     private volatile int value = 0;
 
-    public void set(int value){
+    public void set(int value) {
         this.value = value;
     }
 
-    public int  get(){
+    public int get() {
         return value;
     }
 
@@ -25,7 +25,7 @@ public class WaitNotifyDemo {
         new Thread(new Runnable() {
             @Override
             public void run() {
-                synchronized (waitNotifyDemo){
+                synchronized (waitNotifyDemo) {
                     System.out.println("开始执行。。。。。。");
                     waitNotifyDemo.set(1);
                     System.out.println("设置值完毕。。。。。");
@@ -37,8 +37,8 @@ public class WaitNotifyDemo {
         new Thread(new Runnable() {
             @Override
             public void run() {
-                synchronized (waitNotifyDemo){
-                    while (waitNotifyDemo.get() != 1){
+                synchronized (waitNotifyDemo) {
+                    while (waitNotifyDemo.get() != 1) {
                         try {
                             waitNotifyDemo.wait();
                         } catch (InterruptedException e) {

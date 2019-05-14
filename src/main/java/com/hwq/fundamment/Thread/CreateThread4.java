@@ -4,7 +4,7 @@ package com.hwq.fundamment.Thread;
  * @author hwq
  * @date 2019/03/30
  * <p>
- *     创建线程方式四：匿名内部类
+ * 创建线程方式四：匿名内部类
  * </p>
  */
 public class CreateThread4 {
@@ -32,7 +32,7 @@ public class CreateThread4 {
             public void run() {
                 System.out.println("实现Runnable接口的线程开始了.......");
             }
-        }){
+        }) {
             @Override
             public void run() {
                 System.out.println("继承Thread类的线程开始了.......");

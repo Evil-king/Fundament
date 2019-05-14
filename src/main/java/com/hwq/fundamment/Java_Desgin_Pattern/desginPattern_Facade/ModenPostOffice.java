@@ -11,7 +11,7 @@ public class ModenPostOffice {
     private LetterProcess letterProcess = new LetterProcessImpl();
 
     //把写信的四步一体化了,并且提供为接口给外部
-    public void sendLetter(String context,String address){
+    public void sendLetter(String context, String address) {
         letterProcess.writeContext(context);
 
         letterProcess.fillEnvelope(address);

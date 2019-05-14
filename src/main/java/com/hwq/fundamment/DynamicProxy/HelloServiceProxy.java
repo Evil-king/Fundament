@@ -10,9 +10,9 @@ public class HelloServiceProxy implements InvocationHandler {
     private Object target;
 
     //绑定委托对象并返回代理类
-    public Object bind(Object target){
-      this.target = target;
-      return Proxy.newProxyInstance(target.getClass().getClassLoader(), target.getClass().getInterfaces(), this);
+    public Object bind(Object target) {
+        this.target = target;
+        return Proxy.newProxyInstance(target.getClass().getClassLoader(), target.getClass().getInterfaces(), this);
     }
 
     @Override

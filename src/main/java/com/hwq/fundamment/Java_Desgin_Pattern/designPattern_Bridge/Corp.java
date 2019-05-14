@@ -15,8 +15,7 @@ public abstract class Corp {
     }
 
 
-
-    public void makeMoney(){
+    public void makeMoney() {
         this.product.beProducted();
         this.product.beSelled();
     }

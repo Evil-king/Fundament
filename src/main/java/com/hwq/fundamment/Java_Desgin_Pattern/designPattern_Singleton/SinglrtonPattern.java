@@ -10,7 +10,6 @@ package com.hwq.fundamment.Java_Desgin_Pattern.designPattern_Singleton;
 public class SinglrtonPattern {
 
 
-
     /**
      * 1、懒汉式，线程安全
      * 为了解决上面的问题，最简单的方法是将整个 getInstance() 方法设为同步（synchronized）
@@ -108,15 +107,17 @@ public class SinglrtonPattern {
     public enum SomeThing {
         INSTANCE;
         private SinglrtonPattern singlrtonPattern;
+
         SomeThing() {
             singlrtonPattern = new SinglrtonPattern();
         }
+
         public SinglrtonPattern getInstance() {
             return singlrtonPattern;
         }
     }
 
-    public static void testName(){
+    public static void testName() {
         System.out.println("我就是XXXX");
     }
 }

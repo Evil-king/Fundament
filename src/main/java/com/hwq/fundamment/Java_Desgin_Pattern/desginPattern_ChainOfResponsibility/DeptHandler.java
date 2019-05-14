@@ -1,9 +1,10 @@
 package com.hwq.fundamment.Java_Desgin_Pattern.desginPattern_ChainOfResponsibility;
+
 /**
  * @author hwq
  * @date 2018/10/18
  * <p>
- *     部门经理
+ * 部门经理
  * </p>
  */
 public class DeptHandler extends ConsumeHandler {

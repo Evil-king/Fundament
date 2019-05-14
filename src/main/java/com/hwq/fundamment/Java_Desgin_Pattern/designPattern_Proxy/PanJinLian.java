@@ -1,4 +1,5 @@
 package com.hwq.fundamment.Java_Desgin_Pattern.designPattern_Proxy;
+
 /**
  * 定义实现一种女人类型的 潘金莲
  */

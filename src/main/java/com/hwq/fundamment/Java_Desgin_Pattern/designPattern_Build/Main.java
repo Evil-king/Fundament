@@ -1,13 +1,12 @@
 package com.hwq.fundamment.Java_Desgin_Pattern.designPattern_Build;
 
 
-
 /**
  * @author hwq
  * @date 2018/10/02
  */
 public class Main {
-    public static void main(String[] args){
+    public static void main(String[] args) {
         Director director = new Director();
         Human human = director.createHumanByDirecotr(new SmartManBuilder());
         System.out.println(human.getHead());

@@ -10,7 +10,7 @@ public abstract class Event {
 
     protected final long delayTime;
 
-    public Event (long delayTime) {
+    public Event(long delayTime) {
         this.delayTime = delayTime;
         start();
     }

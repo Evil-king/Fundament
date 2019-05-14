@@ -16,7 +16,7 @@ public class Invoker {
     }
 
     //执行客户的命令
-    public void action(){
+    public void action() {
         this.command.exceute();
     }
 }

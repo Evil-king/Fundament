@@ -15,7 +15,8 @@ public class Context {
     public void setState(State state) {
         this.state = state;
     }
-    public String stateMessage(){
+
+    public String stateMessage() {
         return state.getState();
     }
 }

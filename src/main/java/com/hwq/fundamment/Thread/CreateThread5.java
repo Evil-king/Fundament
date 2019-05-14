@@ -7,7 +7,7 @@ import java.util.TimerTask;
  * @author hwq
  * @date 2019/03/30
  * <p>
- *     创建线程方式五：定时器Timer
+ * 创建线程方式五：定时器Timer
  * </p>
  */
 public class CreateThread5 {
@@ -21,6 +21,6 @@ public class CreateThread5 {
             public void run() {
                 System.out.println("Timer线程开始执行了.......");
             }
-        },0,100);
+        }, 0, 100);
     }
 }

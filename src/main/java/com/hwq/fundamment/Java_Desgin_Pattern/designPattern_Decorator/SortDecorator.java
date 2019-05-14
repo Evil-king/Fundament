@@ -11,11 +11,11 @@ public class SortDecorator extends Decorator {
         super(schoolReport);
     }
 
-    private void reportDecorator(){
+    private void reportDecorator() {
         System.out.println("我的排名是25名....");
     }
 
-    public void report(){
+    public void report() {
         this.reportDecorator();
         super.report();
     }

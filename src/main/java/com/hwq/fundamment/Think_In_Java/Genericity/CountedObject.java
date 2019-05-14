@@ -6,7 +6,13 @@ package com.hwq.fundamment.Think_In_Java.Genericity;
  */
 public class CountedObject {
     private static long count = 0;
-    private final long id = count ++;
-    public long id(){return id;}
-    public String toString(){return "CountedObject：" + id;}
+    private final long id = count++;
+
+    public long id() {
+        return id;
+    }
+
+    public String toString() {
+        return "CountedObject：" + id;
+    }
 }

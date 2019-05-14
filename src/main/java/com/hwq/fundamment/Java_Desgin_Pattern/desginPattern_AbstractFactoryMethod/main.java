@@ -12,7 +12,7 @@ public class main {
         //生产线完成 开始生产人
         Human maleyellowHuman = maleHumanFactory.createYellowHuman();
 
-        Human femaleYellowHuman =  femaleHumanFactory.createYellowHuman();
+        Human femaleYellowHuman = femaleHumanFactory.createYellowHuman();
 
         maleyellowHuman.cry();
         maleyellowHuman.laugh();

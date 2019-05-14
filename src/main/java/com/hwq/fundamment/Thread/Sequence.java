@@ -12,14 +12,14 @@ public class Sequence {
 
 
     //测试可重入锁
-    public void a(){
+    public void a() {
         lock.lock();
         System.out.println("a");
         b();
         lock.unlock();
     }
 
-    public void b(){
+    public void b() {
         lock.lock();
         System.out.println("b");
         lock.unlock();

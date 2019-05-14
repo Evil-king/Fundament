@@ -5,8 +5,8 @@ package com.hwq.fundamment.Java_Desgin_Pattern.designPattern_Composite;
  * @author hwq
  * @date 2018/10/17
  *
- * <P>
- *  视频文件类：叶子构件
+ * <p>
+ * 视频文件类：叶子构件
  * </P>
  */
 public class VideoFile extends AbstractFile {

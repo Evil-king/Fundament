@@ -4,15 +4,15 @@ package com.hwq.fundamment.Thread;
  * @author hwq
  * @date 2019/04/14
  * <p>
- *     实现线程a执行完线程b执行，线程b执行完线程c执行 这样一个效果
+ * 实现线程a执行完线程b执行，线程b执行完线程c执行 这样一个效果
  * </p>
  */
 public class Demo {
 
     private int signal;
 
-    public synchronized void a(){
-        while (signal != 0){
+    public synchronized void a() {
+        while (signal != 0) {
             try {
                 wait();
             } catch (InterruptedException e) {
@@ -22,8 +22,11 @@ public class Demo {
         System.out.println("a");
         signal++;
         notifyAll();
-    };
-    public synchronized void b(){
+    }
+
+    ;
+
+    public synchronized void b() {
         while (signal != 1) {
             try {
                 wait();
@@ -34,8 +37,11 @@ public class Demo {
         System.out.println("b");
         signal++;
         notifyAll();
-    };
-    public synchronized void c(){
+    }
+
+    ;
+
+    public synchronized void c() {
         while (signal != 2) {
             try {
                 wait();
@@ -46,9 +52,11 @@ public class Demo {
         System.out.println("c");
         signal = 0;
         notifyAll();
-    };
+    }
 
-    static class A implements Runnable{
+    ;
+
+    static class A implements Runnable {
         private Demo demo;
 
         public A(Demo demo) {
@@ -57,7 +65,7 @@ public class Demo {
 
         @Override
         public void run() {
-            while (true){
+            while (true) {
                 demo.b();
                 try {
                     Thread.sleep(1000);
@@ -68,13 +76,14 @@ public class Demo {
         }
     }
 
-    static class B implements Runnable{
+    static class B implements Runnable {
 
         private Demo demo;
 
         public B(Demo demo) {
             this.demo = demo;
         }
+
         @Override
         public void run() {
             while (true) {
@@ -88,13 +97,14 @@ public class Demo {
         }
     }
 
-    static class C implements Runnable{
+    static class C implements Runnable {
 
         private Demo demo;
 
         public C(Demo demo) {
             this.demo = demo;
         }
+
         @Override
         public void run() {
             while (true) {

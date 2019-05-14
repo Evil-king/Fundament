@@ -7,15 +7,16 @@ public enum HumanEnum {
     WhiteFemailHuman("desginPattern_AbstractFactoryMethod.WhiteFemailHuman"),
     WhiteMaleHman("desginPattern_AbstractFactoryMethod.WhiteMaleHman"),
     BlackFemaleHuman("desginPattern_AbstractFactoryMethod.YellowFemaleHuman"),
-    BlackMaleHuman("desginPattern_AbstractFactoryMethod.YellowMaleHuman"),;
+    BlackMaleHuman("desginPattern_AbstractFactoryMethod.YellowMaleHuman"),
+    ;
 
     private String value = "";
 
-    private HumanEnum(String value){
+    private HumanEnum(String value) {
         this.value = value;
     }
 
-    public  String getValue(){
-        return  this.value;
+    public String getValue() {
+        return this.value;
     }
 }

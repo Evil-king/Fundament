@@ -1,4 +1,5 @@
 package com.hwq.fundamment.Java_Desgin_Pattern.designPattern_Proxy;
+
 /**
  * 男人出场
  */

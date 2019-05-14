@@ -10,14 +10,14 @@ public class Emperor {
     private Emperor() {
     }
 
-    public static  Emperor getInstance(){
-        if(emperor == null){
+    public static Emperor getInstance() {
+        if (emperor == null) {
             emperor = new Emperor();
         }
         return emperor;
     }
 
-    public static void emperorName(){
+    public static void emperorName() {
         System.out.println("我就是XXXX");
     }
 }

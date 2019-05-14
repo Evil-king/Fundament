@@ -1,4 +1,5 @@
 package com.hwq.fundamment.Java_Desgin_Pattern.designPattern_Build;
+
 /**
  * @author hwq
  * @date 2018/10/02
@@ -7,7 +8,7 @@ public class SmartManBuilder implements IBuildHuman {
 
     Human human;
 
-    public SmartManBuilder(){
+    public SmartManBuilder() {
         human = new Human();
     }
 

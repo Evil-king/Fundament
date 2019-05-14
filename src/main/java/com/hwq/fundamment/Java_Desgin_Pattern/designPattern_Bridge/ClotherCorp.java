@@ -12,7 +12,7 @@ public class ClotherCorp extends Corp {
         super(clother);
     }
 
-    public void makeMoney(){
+    public void makeMoney() {
         super.makeMoney();
         System.out.println("服装公司赚小钱...");
     }

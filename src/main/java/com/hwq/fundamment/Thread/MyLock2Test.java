@@ -10,11 +10,11 @@ public class MyLock2Test {
 
     MyLock2 lock = new MyLock2();
 
-    public int getNext(){
+    public int getNext() {
         lock.lock();
         try {
             Thread.sleep(300);
-            return  value++;
+            return value++;
         } catch (InterruptedException e) {
             throw new RuntimeException();
         } finally {
@@ -23,7 +23,7 @@ public class MyLock2Test {
     }
 
     // 测试可重入
-    public void a(){
+    public void a() {
         lock.lock();
         System.out.println("a");
         b();
@@ -31,14 +31,14 @@ public class MyLock2Test {
 
     }
 
-    public void b(){
+    public void b() {
         lock.lock();
         System.out.println("b");
         c();
         lock.unlock();
     }
 
-    public void c(){
+    public void c() {
         lock.lock();
         System.out.println("c");
         lock.unlock();

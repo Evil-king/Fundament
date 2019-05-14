@@ -1,4 +1,5 @@
 package com.hwq.fundamment.Java_Desgin_Pattern.designPattern_Strategy;
+
 /**
  * 实施类  实施策略的类
  */

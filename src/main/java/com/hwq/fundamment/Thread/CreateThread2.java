@@ -4,13 +4,13 @@ package com.hwq.fundamment.Thread;
  * @author hwq
  * @date 2019/03/30
  * <p>
- *     创建线程方式二：实现Runnable接口
+ * 创建线程方式二：实现Runnable接口
  * </p>
  */
-public class CreateThread2 implements Runnable{
+public class CreateThread2 implements Runnable {
     @Override
     public void run() {
-        while (true){
+        while (true) {
             System.out.println("线程开始了.....");
         }
     }

@@ -12,9 +12,9 @@ public class Client {
         handler1.setNextHandler(handler2);
         handler1.doHandler();*/
 
-        ProjectHandler projectHandler =new ProjectHandler();
-        DeptHandler deptHandler =new DeptHandler();
-        GeneralHandler generalHandler =new GeneralHandler();
+        ProjectHandler projectHandler = new ProjectHandler();
+        DeptHandler deptHandler = new DeptHandler();
+        GeneralHandler generalHandler = new GeneralHandler();
         projectHandler.setNextHandler(deptHandler);
         deptHandler.setNextHandler(generalHandler);
         projectHandler.doHandler("lwx", 450);

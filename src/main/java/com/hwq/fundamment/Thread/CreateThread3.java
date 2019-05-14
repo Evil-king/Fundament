@@ -7,7 +7,7 @@ import java.util.concurrent.FutureTask;
  * @author hwq
  * @date 2019/03/30
  * <p>
- *     创建线程方式三：实现Callable接口 并且有返回值和能抛出异常 结合FutureTask一起用
+ * 创建线程方式三：实现Callable接口 并且有返回值和能抛出异常 结合FutureTask一起用
  * </p>
  */
 public class CreateThread3 implements Callable<Integer> {

@@ -12,7 +12,7 @@ public class HouserCrop extends Corp {
         super(product);
     }
 
-    public void makeMoney(){
+    public void makeMoney() {
         super.makeMoney();
         System.out.println("房地产公司太赚钱了...");
     }

@@ -8,7 +8,7 @@ import java.util.concurrent.locks.ReentrantLock;
  * @author hwq
  * @date 2019/04/14
  * <p>
- *     针对Demo的改进 弃用wait/notify 该用condition
+ * 针对Demo的改进 弃用wait/notify 该用condition
  * </p>
  */
 public class ConditionDemo {
@@ -21,9 +21,9 @@ public class ConditionDemo {
     Condition b = lock.newCondition();
     Condition c = lock.newCondition();
 
-    public void a(){
+    public void a() {
         lock.lock();
-        while (signal != 0){
+        while (signal != 0) {
             try {
                 a.await();
             } catch (InterruptedException e) {
@@ -36,7 +36,7 @@ public class ConditionDemo {
         lock.unlock();
     }
 
-    public void b(){
+    public void b() {
         lock.lock();
         while (signal != 1) {
             try {
@@ -51,7 +51,7 @@ public class ConditionDemo {
         lock.unlock();
     }
 
-    public  void c(){
+    public void c() {
         lock.lock();
         while (signal != 2) {
             try {
@@ -64,9 +64,11 @@ public class ConditionDemo {
         signal = 0;
         a.signal();
         lock.unlock();
-    };
+    }
 
-    static class A implements Runnable{
+    ;
+
+    static class A implements Runnable {
         private ConditionDemo demo;
 
         public A(ConditionDemo demo) {
@@ -75,7 +77,7 @@ public class ConditionDemo {
 
         @Override
         public void run() {
-            while (true){
+            while (true) {
                 demo.b();
                 try {
                     Thread.sleep(1000);
@@ -86,13 +88,14 @@ public class ConditionDemo {
         }
     }
 
-    static class B implements Runnable{
+    static class B implements Runnable {
 
         private ConditionDemo demo;
 
         public B(ConditionDemo demo) {
             this.demo = demo;
         }
+
         @Override
         public void run() {
             while (true) {
@@ -106,13 +109,14 @@ public class ConditionDemo {
         }
     }
 
-    static class C implements Runnable{
+    static class C implements Runnable {
 
         private ConditionDemo demo;
 
         public C(ConditionDemo demo) {
             this.demo = demo;
         }
+
         @Override
         public void run() {
             while (true) {

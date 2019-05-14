@@ -4,11 +4,11 @@ package com.hwq.fundamment.Thread;
  * @author hwq
  * @date 2019/04/13
  * <p>
- *     生产者
- *     wait/notify实现的生产和消费者
+ * 生产者
+ * wait/notify实现的生产和消费者
  * </p>
  */
-public class Push implements Runnable{
+public class Push implements Runnable {
 
     private MallDemo mallDemo;
 
@@ -18,7 +18,7 @@ public class Push implements Runnable{
 
     @Override
     public void run() {
-        while (true){
+        while (true) {
             mallDemo.push();
             try {
                 Thread.sleep(1000);

@@ -7,9 +7,9 @@ import java.util.List;
  * @author hwq
  * @date 2018/10/18
  * <p>
- *     1、只有一个抽象方法的函数式接口
- *     2、集合批量操作
- *     3、流操作
+ * 1、只有一个抽象方法的函数式接口
+ * 2、集合批量操作
+ * 3、流操作
  * </p>
  */
 public class Main {
@@ -30,20 +30,22 @@ public class Main {
 
 //        new Thread(() -> run("t4")).start();
 
-        new Thread(() -> {String str = "t5";
-            System.out.println(str);}).start();
+        new Thread(() -> {
+            String str = "t5";
+            System.out.println(str);
+        }).start();
 
 
         //2、集合批量操作
-        List<String> list = Arrays.asList("a","b","c");
-        for(String str  : list){
+        List<String> list = Arrays.asList("a", "b", "c");
+        for (String str : list) {
             System.out.println(str);
         }
 
         list.forEach((e) -> System.out.println(e));
 
         //3、流操作 下面是流查询list集合中等于"a"的数量
-        int num = (int) list.stream().filter((e) ->"a".equals(e)).count();
+        int num = (int) list.stream().filter((e) -> "a".equals(e)).count();
         System.out.println(num);
     }
 

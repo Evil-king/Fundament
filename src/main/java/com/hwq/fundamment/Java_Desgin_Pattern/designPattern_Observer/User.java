@@ -5,8 +5,8 @@ package com.hwq.fundamment.Java_Desgin_Pattern.designPattern_Observer;
  * @author hwq
  * @date 2018/10/17
  * <p>
- *     观察者
- *     实现了update方法
+ * 观察者
+ * 实现了update方法
  * </p>
  */
 public class User implements Observer {
