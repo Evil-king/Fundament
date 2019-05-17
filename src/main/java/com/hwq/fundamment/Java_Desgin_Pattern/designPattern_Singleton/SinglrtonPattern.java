@@ -26,7 +26,7 @@ public class SinglrtonPattern {
 //    }
 
     /**
-     * 2、双重检验锁
+     * 3、双重检验锁
      * 双重检验锁模式（double checked locking pattern），是一种使用同步块加锁的方法。
      * 程序员称其为双重检查锁，因为会有两次检查 instance == null，一次是在同步块外，一次是在同步块内。
      * 为什么在同步块内还要再检验一次？因为可能会有多个线程一起进入同步块外的 if，
@@ -43,17 +43,18 @@ public class SinglrtonPattern {
      * 这时 instance 已经是非 null 了（但却没有初始化），所以线程二会直接返回 instance，然后使用，然后顺理成章地报错。
      */
 
-//    private static SinglrtonPattern singlrtonPattern = null;
+
+//    private static volatile  SinglrtonPattern singlrtonPattern = null;
 //
 //    private SinglrtonPattern() {
 //    }
-//    private static volatile  SinglrtonPattern singlrtonPattern = null;
+//
 //    public static SinglrtonPattern getInstance(){
 //        if(singlrtonPattern == null){
-//            synchronized (SinglrtonPattern.classAdapter){
-//               if(singlrtonPattern == null){
-//                   singlrtonPattern = new SinglrtonPattern();
-//               }
+//            synchronized (SinglrtonPattern.class){
+//                if(singlrtonPattern == null){
+//                    singlrtonPattern = new SinglrtonPattern();
+//                }
 //            }
 //        }
 //        return singlrtonPattern;
@@ -88,7 +89,8 @@ public class SinglrtonPattern {
      * 除了 getInstance() 之外没有办法访问它，因此它是懒汉式的；同时读取实例的时候不会进行同步，
      * 没有性能缺陷；也不依赖 JDK 版本。
      */
-//    private static classAdapter SingletonHolder {
+
+//    private static class SingletonHolder {
 //        private static final SinglrtonPattern INSTANCE = new SinglrtonPattern();
 //    }
 //    private SinglrtonPattern (){}
@@ -106,18 +108,31 @@ public class SinglrtonPattern {
      */
     public enum SomeThing {
         INSTANCE;
-        private SinglrtonPattern singlrtonPattern;
 
-        SomeThing() {
-            singlrtonPattern = new SinglrtonPattern();
+        private String objName;
+
+        public String getObjName() {
+            return objName;
         }
 
-        public SinglrtonPattern getInstance() {
-            return singlrtonPattern;
-        }
-    }
+        public void setObjName(String objName) {
+            this.objName = objName;
+        }}
 
-    public static void testName() {
-        System.out.println("我就是XXXX");
+    public static void main(String[] args) {
+        // 单例测试
+        SomeThing firstSingleton = SomeThing.INSTANCE;
+        firstSingleton.setObjName("firstName");
+        System.out.println(firstSingleton.getObjName());
+        SomeThing secondSingleton = SomeThing.INSTANCE;
+        secondSingleton.setObjName("secondName");
+        System.out.println(firstSingleton.getObjName());
+        System.out.println(secondSingleton.getObjName());
+
+        // 反射获取实例测试
+        SomeThing[] someThings = SomeThing.class.getEnumConstants();
+        for(SomeThing someThing : someThings){
+            System.out.println(someThing.getObjName());
+        }
     }
 }

@@ -12,7 +12,7 @@ public class Minister {
 //        Emperor emperor3 = Emperor.getInstance();
 //        Emperor.emperorName();
 
-        SinglrtonPattern singlrtonPattern = SinglrtonPattern.SomeThing.INSTANCE.getInstance();
-        System.out.println(singlrtonPattern);
+//        SinglrtonPattern singlrtonPattern = SinglrtonPattern.SomeThing.INSTANCE.getInstance();
+//        System.out.println(singlrtonPattern);
     }
 }
