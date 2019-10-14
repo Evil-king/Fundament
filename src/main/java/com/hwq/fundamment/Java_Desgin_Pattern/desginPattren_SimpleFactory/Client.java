@@ -1,9 +1,24 @@
 package com.hwq.fundamment.Java_Desgin_Pattern.desginPattren_SimpleFactory;
 
 public class Client {
+
     public static void main(String[] args) {
-        SimpleFactory simpleFactory = new SimpleFactory();
-        Product product = simpleFactory.createProduct(2);
-        // do something with the product
+//        VideoFactory videoFactory = new VideoFactory();
+//        Video  video = videoFactory.getVideo("java");
+//        if(video == null){
+//            return;
+//        }
+//        video.produce();
+
+
+//        Video  video = VideoFactory.getVideo("java");
+//        if(video == null){
+//            return;
+//        }
+//        video.produce();
+
+        VideoFactory videoFactory = new VideoFactory();
+        Video video =videoFactory.getVideo(JavaVideo.class);
+        video.produce();
     }
 }
