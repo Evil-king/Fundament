@@ -1,18 +1,34 @@
 package com.hwq.fundamment.Java_Desgin_Pattern.designPattern_Singleton;
 
+import java.io.*;
+
 /**
  * @author hwq
  * @date 2019/10/20
  */
 public class Test {
 
-    public static void main(String[] args) {
-        Thread thread1 = new Thread(new T());
-        Thread thread2 = new Thread(new T());
+//    public static void main(String[] args) {
+//        Thread thread1 = new Thread(new T());
+//        Thread thread2 = new Thread(new T());
+//
+//        thread1.start();
+//        thread2.start();
+//
+//        System.out.println("project is end");
+//    }
 
-        thread1.start();
-        thread2.start();
+    public static void main(String[] args) throws IOException, ClassNotFoundException {
+        HungrySingleton instance = HungrySingleton.getInsence();
 
-        System.out.println("project is end");
+        ObjectOutputStream oos  = new ObjectOutputStream(new FileOutputStream("stream.txt"));
+        oos.writeObject(instance);
+
+        ObjectInputStream ois = new ObjectInputStream(new FileInputStream("stream"));
+        HungrySingleton newInstance =  (HungrySingleton)ois.readObject();
+
+        System.out.println(instance);
+        System.out.println(newInstance);
+        System.out.println(instance == newInstance);
     }
 }
