@@ -24,7 +24,9 @@ public class Test {
         ObjectOutputStream oos  = new ObjectOutputStream(new FileOutputStream("stream.txt"));
         oos.writeObject(instance);
 
-        ObjectInputStream ois = new ObjectInputStream(new FileInputStream("stream"));
+        File file = new File("stream.txt");
+
+        ObjectInputStream ois = new ObjectInputStream(new FileInputStream(file));
         HungrySingleton newInstance =  (HungrySingleton)ois.readObject();
 
         System.out.println(instance);
