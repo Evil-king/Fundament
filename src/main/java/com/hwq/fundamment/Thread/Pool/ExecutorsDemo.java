@@ -1,4 +1,6 @@
-package com.hwq.fundamment.Thread;
+package com.hwq.fundamment.Thread.Pool;
+
+import com.hwq.fundamment.Thread.SubThread;
 
 import java.util.concurrent.*;
 

@@ -1,4 +1,4 @@
-package com.hwq.fundamment.Thread;
+package com.hwq.fundamment.Thread.Lock;
 
 import java.util.concurrent.locks.Condition;
 import java.util.concurrent.locks.Lock;

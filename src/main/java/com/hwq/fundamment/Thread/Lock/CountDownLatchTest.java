@@ -1,4 +1,7 @@
-package com.hwq.fundamment.Thread;
+package com.hwq.fundamment.Thread.Lock;
+
+import com.hwq.fundamment.Thread.DoneThread;
+import com.hwq.fundamment.Thread.WorkThread;
 
 import java.util.concurrent.CountDownLatch;
 
