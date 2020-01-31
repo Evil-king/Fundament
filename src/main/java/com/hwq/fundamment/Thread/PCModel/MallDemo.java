@@ -1,4 +1,4 @@
-package com.hwq.fundamment.Thread;
+package com.hwq.fundamment.Thread.PCModel;
 
 /**
  * @author hwq

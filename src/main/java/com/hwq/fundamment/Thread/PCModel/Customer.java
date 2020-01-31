@@ -1,4 +1,6 @@
-package com.hwq.fundamment.Thread;
+package com.hwq.fundamment.Thread.PCModel;
+
+import com.hwq.fundamment.Thread.PCModel.MallDemo;
 
 /**
  * @author hwq
