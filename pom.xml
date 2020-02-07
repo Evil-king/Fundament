@@ -36,6 +36,18 @@
             <scope>test</scope>
         </dependency>
 
+        <!-- 导入Spirng Boot  web 所需的jar包 -->
+        <dependency>
+           <groupId>org.springframework.boot</groupId>
+           <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+
+        <!-- 导入Spirng Boot  aop 所需的jar包 -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-aop</artifactId>
+        </dependency>
+
         <!-- lombok-->
         <dependency>
             <groupId>org.projectlombok</groupId>

@@ -1,11 +1,8 @@
-package com.hwq.fundamment;
-
-import com.hwq.fundamment.test.Demo;
+package com.hwq.fundamment.test;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
-import java.time.temporal.ChronoUnit;
 
 public class MyDemo {
     public void test(Demo demo){
