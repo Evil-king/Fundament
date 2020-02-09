@@ -3,6 +3,7 @@ package com.hwq.fundamment.controller;
 import com.hwq.fundamment.pojo.User;
 import com.hwq.fundamment.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -24,5 +25,13 @@ public class UserController {
 //        User user = userService.login(id);
 //        return user;
 //    }
+
+    @Value("${my.fullName}")
+    private String name;
+
+    @RequestMapping("/")
+    public String index(){
+        return "我的名字是:"+name;
+    }
 
 }
