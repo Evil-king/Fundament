@@ -17,12 +17,12 @@ public class ExecutorsDemo {
         executor.execute(()->{
             System.out.println("胡文卿");
         });
-        executor.submit(new Runnable() {
-            @Override
-            public void run() {
-                System.out.println("胡文卿最牛B");
-            }
-        });
+//        executor.submit(new Runnable() {
+//            @Override
+//            public void run() {
+//                System.out.println("胡文卿最牛B");
+//            }
+//        });
 //        for (int i = 0; i < Integer.MAX_VALUE; i++) {
 //            if(executor.isShutdown()){
 //                executor.execute(new SubThread());
@@ -45,6 +45,20 @@ public class ExecutorsDemo {
 //            System.out.println(str1);
 //        }
     }
+    /**
+     * public ThreadPoolExecutor(int corePoolSize, 核心线程数量
+     *                               int maximumPoolSize, 最大线程数量
+     *                               long keepAliveTime, 保持时长
+     *                               TimeUnit unit,时间单位
+     *                               BlockingQueue<Runnable> workQueue, 阻塞队列
+     *                               ThreadFactory threadFactory, 线程工厂
+     *                               RejectedExecutionHandler handler) 拒绝策略
+     *                               {
+     */
+
+    /**
+     * workerCountOf这个方法会拿到当前线程池的数量
+     */
 
     /**
      *      if (workerCountOf(c) < corePoolSize) {  如果小于核心数
