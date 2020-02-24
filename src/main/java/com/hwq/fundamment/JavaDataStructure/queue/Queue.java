@@ -1,4 +1,4 @@
-package com.hwq.fundamment.JavaDataStructure;
+package com.hwq.fundamment.JavaDataStructure.queue;
 
 public class Queue<E> {
     private Object[] data = null;
