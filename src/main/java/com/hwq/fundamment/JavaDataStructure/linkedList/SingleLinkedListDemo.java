@@ -31,12 +31,35 @@ public class SingleLinkedListDemo {
         singleLinkedList.list();
         System.out.println("删除后的singleLinkedList~~");
 
+        System.out.println("有效的节点个数="+getLength(singleLinkedList.getHead()));
 
     }
+
+    //获取单链表有效节点的个数
+    public static int getLength(HeroNode head){
+        if(head.next == null){
+            return 0;
+        }
+        int length = 0;
+        //定义一个辅助的变量
+        HeroNode temp = head.next;
+        while (temp != null){
+            //找到最后
+            length++;
+            temp = temp.next;
+        }
+        return length;
+    }
+
 
     static class SingleLinkedList {
         //初始化一个头节点，头节点不要动，不存放具体数据的
         private HeroNode head = new HeroNode(0, "", "");
+
+        //返回头结点
+        public HeroNode getHead() {
+            return head;
+        }
 
         //添加节点到单链表思路(不考虑排序)：
         //1、找到当前节点的最后节点
