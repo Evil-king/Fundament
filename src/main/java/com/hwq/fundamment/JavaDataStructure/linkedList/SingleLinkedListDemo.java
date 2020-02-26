@@ -166,6 +166,8 @@ public class SingleLinkedListDemo {
             }
         }
 
+        //遍历双向链表的方法
+        //显示链表[遍历]
         public void list() {
             //判断链表是否为空
             if (head.next == null) {
@@ -177,7 +179,9 @@ public class SingleLinkedListDemo {
                 if (temp == null) {
                     break;
                 }
+                //输出节点信息
                 System.out.println(temp);
+                //将temp后移，一定要记得
                 temp = temp.next;
             }
         }
