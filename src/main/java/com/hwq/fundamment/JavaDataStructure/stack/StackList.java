@@ -1,4 +1,4 @@
-package com.hwq.fundamment.JavaDataStructure;
+package com.hwq.fundamment.JavaDataStructure.stack;
 
 import java.util.LinkedList;
 

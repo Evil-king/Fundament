@@ -1,4 +1,4 @@
-package com.hwq.fundamment.JavaDataStructure;
+package com.hwq.fundamment.JavaDataStructure.stack;
 
 /**
  * 基于数组实现的顺序栈
