@@ -50,7 +50,7 @@ public class SelectSort {
                 }
             }
             //进行交换，将最小值放在arr[0] = minValue;arr[minIndex] = arr[0];
-            if(minIndex != i){
+            if(minIndex != i){ //如果minIndex == i说明就不用交换，不等于的时候才需要交换
                 arr[minIndex] = arr[i];
                 arr[i] = minValue;
             }

@@ -1,4 +1,4 @@
-package com.hwq.fundamment.Colllection;
+package com.hwq.fundamment.colllection;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -1,13 +1,12 @@
 package com.hwq.fundamment.controller;
 
-import com.hwq.fundamment.pojo.User;
-import com.hwq.fundamment.service.UserService;
+import com.hwq.fundamment.redis.JedisResourcePool;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import redis.clients.jedis.Jedis;
 
 /**
  * @Auther: Administrator
@@ -29,8 +28,20 @@ public class UserController {
     @Value("${my.fullName}")
     private String name;
 
+    @Autowired
+    private RedisTemplate redisTemplate;
+
+    @Autowired
+    private JedisResourcePool jedisResourcePool;
+
+
     @RequestMapping("/")
     public String index(){
+//        redisTemplate.opsForValue().set("Fox","SB");
+        Jedis jedis = jedisResourcePool.getJedis();
+        jedis.set("Fox","SB");
+        jedisResourcePool.returnResource(jedis);
+        System.out.println("pool use end");
         return "我的名字是:"+name;
     }
 

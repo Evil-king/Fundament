@@ -1,4 +1,4 @@
-package com.hwq.fundamment.test;
+package com.hwq.fundamment.redis;
 
 import com.google.common.hash.BloomFilter;
 import com.google.common.hash.Funnels;
@@ -7,11 +7,13 @@ import com.google.common.hash.Funnels;
  * @Auther: Administrator
  * @Date: 2020/2/3 0003 11:37
  * @Description: 测试布隆过滤器(可用于redis缓存穿透)
+ * fpp 容错率
+ *
  */
 public class TestBloomFilter {
 
     private static int total = 1000000;
-    private static BloomFilter<Integer> bf = BloomFilter.create(Funnels.integerFunnel(), total);
+    private static BloomFilter<Integer> bf = BloomFilter.create(Funnels.integerFunnel(), total,0.0001);
 
     public static void main(String[] args) {
         //初始化1000000条数据到过滤器中
