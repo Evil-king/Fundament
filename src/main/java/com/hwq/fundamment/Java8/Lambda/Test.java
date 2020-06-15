@@ -2,10 +2,7 @@ package com.hwq.fundamment.Java8.Lambda;
 
 import lombok.extern.slf4j.Slf4j;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Comparator;
-import java.util.List;
+import java.util.*;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -43,5 +40,36 @@ public class Test {
         listOne.add("ggg hhh iii");
         listOne = listOne.stream().map(s -> s.split(" ")).flatMap(Arrays::stream).collect(toList());
         log.info("listOne={}",listOne);
+
+
+        Stream.of("apple","banana","orange","waltermaleon","grape")
+                .map(e->e.length()) //转成单词的长度 int
+                .forEach(e->System.out.print(e)); //输出
+
+        System.out.println("-------------------");
+
+        Stream.of("a-b-c-d","e-f-i-g-h")
+                .flatMap(e->Stream.of(e.split("-")))
+//                .forEach(System.out::print);
+                .forEach(s->System.out.print(s));
+
+        System.out.println("-------------------");
+
+        Set<String> stringSet = Stream.of("apple", "banana", "orange", "waltermaleon", "grape")
+                .collect(Collectors.toSet()); //收集的结果就是set
+        stringSet.forEach(e->System.out.println(e)); //set的语法糖forEach
+
+
+        //findFirst 获取流中的第一个元素
+        //这里找到第一个元素 apple
+        Optional<String> stringOptional = Stream.of("apple", "banana", "orange", "waltermaleon", "grape")
+                .findFirst();
+        stringOptional.ifPresent(e->System.out.println(e));
+
+
+        Optional<String> stringOptional1 = Stream.of("apple", "banana", "orange", "waltermaleon", "grape")
+                .parallel()
+                .findAny(); //在并行流下每次返回的结果可能一样也可能不一样
+        stringOptional1.ifPresent(e->System.out.println(e));
     }
 }
