@@ -1,5 +1,11 @@
 package com.hwq.fundamment.test;
 
+import com.alibaba.fastjson.JSONObject;
+import com.hwq.fundamment.IdWorker;
+import org.assertj.core.util.Lists;
+
+import java.util.List;
+
 /**
  * @author hwq
  * @date 2019/12/07
@@ -36,16 +42,24 @@ public class Test {
 //        int a = 10;
 //        fun(a);
 //        System.out.println("方法执行完后的a:" + a);
-        int a = 23;
-        float w = 78.9f;
-        valueCrossTest(a,w);
-        System.out.println("方法执行后的age："+a);
-        System.out.println("方法执行后的weight："+w);
-        System.out.println("-----------------------------");
-        Person p=new Person();
-        p.setName("我是马化腾");
-        p.setAge("45");
-        PersonCrossTest(p);
-        System.out.println("方法执行后的name："+p.getName());
+//        int a = 23;
+//        float w = 78.9f;
+//        valueCrossTest(a,w);
+//        System.out.println("方法执行后的age："+a);
+//        System.out.println("方法执行后的weight："+w);
+//        System.out.println("-----------------------------");
+//        Person p=new Person();
+//        p.setName("我是马化腾");
+//        p.setAge("45");
+//        PersonCrossTest(p);
+//        System.out.println("方法执行后的name："+p.getName());
+
+//        List list = Lists.newArrayList(1,2,3,4,5,6,7,8,9,10);
+//        System.out.println(JSONObject.toJSON(list));
+//        System.out.println(list.toString().replace("[","").replace("]",""));
+
+        for (int i = 0; i < 15; i++) {
+            System.out.println(IdWorker.getId());
+        }
     }
 }

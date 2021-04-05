@@ -92,7 +92,7 @@ class BinaryTree {
         }
     }
 
-    //中序遍历
+    //后序遍历
     public void postOrder() {
         if (this.root != null) {
             this.root.postOrder();
