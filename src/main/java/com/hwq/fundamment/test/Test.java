@@ -1,9 +1,17 @@
 package com.hwq.fundamment.test;
 
+import cn.hutool.core.util.StrUtil;
 import com.alibaba.fastjson.JSONObject;
+import com.hwq.fundamment.DateUtil;
 import com.hwq.fundamment.IdWorker;
 import org.assertj.core.util.Lists;
 
+import java.text.ParseException;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -38,6 +46,7 @@ public class Test {
     }
 
 
+
     public static void main(String[] args) {
 //        int a = 10;
 //        fun(a);
@@ -58,8 +67,34 @@ public class Test {
 //        System.out.println(JSONObject.toJSON(list));
 //        System.out.println(list.toString().replace("[","").replace("]",""));
 
-        for (int i = 0; i < 15; i++) {
-            System.out.println(IdWorker.getId());
-        }
+//        for (int i = 0; i < 666; i++) {
+//            System.out.println(IdWorker.getId());
+//        }
+//        LocalTime nowTimeStr  = LocalTime.now();
+//        System.out.println(nowTimeStr);
+//        LocalTime conditionStr = LocalTime.parse("19:23:00");
+//        System.out.println(conditionStr);
+//        int nowTimeInt  = Integer.valueOf(nowTimeStr.replaceAll(":",""));
+//        int conditionInt = Integer.valueOf(conditionStr.replaceAll(":",""));
+
+//        if(nowTimeStr.isBefore(conditionStr)){
+////            System.out.println(11111);
+////        } else {
+////            System.out.println(2222);
+////        }
+
+//        String dbStr = "2021-04-13 21:30:00";
+//        String[] strings = dbStr.split(" ");
+//        String currentTime = LocalDate.now().toString();
+//        if (StrUtil.equals(strings[0], currentTime)) {
+//            System.out.println(111);
+//        } else {
+//            System.out.println(222);
+//        }
+
+        String strTime = LocalDate.now()+" "+"21:20:00";
+        Date date = DateUtil.strToDate(strTime);
+        System.out.println(date.getTime());
+
     }
 }
