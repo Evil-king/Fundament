@@ -95,7 +95,7 @@ public class BubbleSort {
         for (int i = 0; i < arr.length - 1; i++) {
 
             for (int j = 0; j < arr.length - 1 - i; j++) {
-                //如果前面的数比后面的数打，则交换
+                //如果前面的数比后面的数大，则交换
                 if (arr[j] > arr[j + 1]) {
                     flag = true;
                     temp = arr[j];
