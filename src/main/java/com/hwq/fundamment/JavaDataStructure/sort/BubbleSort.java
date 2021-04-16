@@ -9,8 +9,8 @@ import java.util.logging.SimpleFormatter;
  * @Auther: Administrator
  * @Date: 2020/3/3 0003 14:51
  * @Description:冒泡排序 规则：
- * 1、一共进行数组长度-1次排序
- * 2、每一趟排序的次数在逐渐的减少
+ * 1、一共进行数组长度-1次排序 最外层循环length-1
+ * 2、每一趟排序的次数在逐渐的减少 第二次循环在最外层的基础上 length -1 -1
  * 3、如果我们发现在某趟排序中，没有发生一次交换，可以提前结束排序(优化点)
  */
 public class BubbleSort {
@@ -26,14 +26,14 @@ public class BubbleSort {
         Date date1 = new Date();
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         String dateStr = simpleDateFormat.format(date1);
-        System.out.println("排序前的时间是="+dateStr);
+        System.out.println("排序前的时间是=" + dateStr);
 
         //测试冒泡排序
         bubbleSort(arr);
 
         Date date2 = new Date();
         String dateStr2 = simpleDateFormat.format(date2);
-        System.out.println("排序后的时间是="+dateStr2);
+        System.out.println("排序后的时间是=" + dateStr2);
 
         /** //第一趟排序，就是将最大的数排在最后
          int temp = 0;//临时变量用于交换的时候用
