@@ -1,4 +1,4 @@
-package com.hwq.fundamment;
+package com.hwq.fundamment.tools;
 
 import lombok.extern.slf4j.Slf4j;
 
