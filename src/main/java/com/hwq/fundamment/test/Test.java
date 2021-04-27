@@ -13,6 +13,9 @@ import java.time.LocalDate;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.Executors;
+import java.util.concurrent.ScheduledExecutorService;
+import java.util.concurrent.TimeUnit;
 
 /**
  * @author hwq
@@ -146,8 +149,17 @@ public class Test {
 //        }
 //        log.info("resultList={}",JSONObject.toJSONString(resultList));
 
+        ScheduledExecutorService executorService = Executors.newSingleThreadScheduledExecutor();
+        System.out.println(System.currentTimeMillis());
+        executorService.schedule(new Runnable() {
+            @Override
+            public void run() {
+                System.out.println(1111111);
+                System.out.println(System.currentTimeMillis());
 
-
-
+            }
+        }, 1000, TimeUnit.MILLISECONDS);
+        System.out.println(System.currentTimeMillis());
+        executorService.shutdown();
     }
 }
