@@ -1,6 +1,5 @@
 package com.hwq.fundamment;
 
-import com.hwq.fundamment.redis.JedisResourcePool;
 import com.hwq.fundamment.redis.RedisBloomFilter;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.AfterClass;

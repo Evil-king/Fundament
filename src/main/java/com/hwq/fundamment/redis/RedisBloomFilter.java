@@ -30,8 +30,8 @@ import java.util.List;
 @ConfigurationProperties(prefix = "bloom.filter")
 @Component
 public class RedisBloomFilter {
-    @Autowired
-    private JedisResourcePool jedisResourcePool;
+//    @Autowired
+//    private JedisResourcePool jedisResourcePool;
     @Autowired
     private RedisTemplate redisTemplate;
 

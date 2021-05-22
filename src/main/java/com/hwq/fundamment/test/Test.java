@@ -1,15 +1,23 @@
 package com.hwq.fundamment.test;
 
+import cn.hutool.core.date.DateTime;
+import cn.hutool.core.date.DateUtil;
 import cn.hutool.core.util.StrUtil;
 import cn.hutool.json.JSONArray;
 import cn.hutool.json.JSONUtil;
 import cn.hutool.log.Log;
 import cn.hutool.log.LogFactory;
 import com.alibaba.fastjson.JSONObject;
+import com.google.common.collect.Lists;
+import com.hwq.fundamment.tools.IdWorker;
 import lombok.Data;
-import org.assertj.core.util.Lists;
+import org.springframework.scheduling.annotation.Scheduled;
 
 import java.time.LocalDate;
+import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
@@ -42,13 +50,48 @@ public class Test {
 
     }
 
-    public static void PersonCrossTest(Person person){
-        System.out.println("传入的person的name："+person.getName());
+    public static void PersonCrossTest(Person person) {
+        System.out.println("传入的person的name：" + person.getName());
         person.setName("我是张小龙");
-        System.out.println("方法内重新赋值后的name："+person.getName());
+        System.out.println("方法内重新赋值后的name：" + person.getName());
     }
 
+    public static List<String>  pri(String modelCode) {
+        List<String> stringList = Lists.newArrayList();
+        if ("Test".equals(modelCode)) {
+            Integer[] testSix = new Integer[]{1, 2, 3, 4, 5, 6, 49};
+            List list = new ArrayList(Arrays.asList(testSix));
+            for (int i = 0; i < list.size(); i++) {
+                if ((Integer) list.get(i) < 10) {
+                    stringList.add("0" + list.get(i) + "");
+                } else {
+                    stringList.add(list.get(i) + "");
+                }
+            }
+        }
+        return stringList;
+    }
 
+    /**
+     * 判断时间是否在某个时间段内
+     *
+     * @param s1 时间段开始时间,形如22:30:00
+     * @param s2 时间段结束时间,形如06:00:00
+     * @return boolean
+     */
+    public static boolean isInTimeRange(String s1, String s2) {
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("HH:mm");
+        String localTime = LocalTime.now().format(formatter);
+//        String localTime = "04:03:46";
+        int set = Integer.valueOf(localTime.replaceAll(":", ""));
+        int begin = Integer.valueOf(s1.replaceAll(":", ""));
+        int end = Integer.valueOf(s2.replaceAll(":", ""));
+        if (begin >= end) {
+            return set <= end || set >= begin;
+        } else {
+            return set >= begin && set <= end;
+        }
+    }
 
     public static void main(String[] args) {
 //        int a = 10;
@@ -70,7 +113,7 @@ public class Test {
 //        System.out.println(JSONObject.toJSON(list));
 //        System.out.println(list.toString().replace("[","").replace("]",""));
 
-//        for (int i = 0; i < 666; i++) {
+//        for (int i = 0; i < 10; i++) {
 //            System.out.println(IdWorker.getId());
 //        }
 //        LocalTime nowTimeStr  = LocalTime.now();
@@ -148,18 +191,18 @@ public class Test {
 //            resultList.add(coldHotVo);
 //        }
 //        log.info("resultList={}",JSONObject.toJSONString(resultList));
+//        for (int i = 9; i > 0; i--) {
+//            for (int j = 1, k = 10 - i; j <= i; j++, k++) {
+//                System.out.print(j + "×" + k + "=" + k * j + "\t");// \t 跳到下一个TAB位置
+//            }
+//            System.out.println();
+//        }
 
-        ScheduledExecutorService executorService = Executors.newSingleThreadScheduledExecutor();
-        System.out.println(System.currentTimeMillis());
-        executorService.schedule(new Runnable() {
-            @Override
-            public void run() {
-                System.out.println(1111111);
-                System.out.println(System.currentTimeMillis());
-
-            }
-        }, 1000, TimeUnit.MILLISECONDS);
-        System.out.println(System.currentTimeMillis());
-        executorService.shutdown();
+//        for (int i = 1; i <15; i++) {
+//            System.out.println(IdWorker.getId());
+//        }
+        for (int i = 0; i < 5; i++) {
+            System.out.println(IdWorker.getId());
+        }
     }
 }
