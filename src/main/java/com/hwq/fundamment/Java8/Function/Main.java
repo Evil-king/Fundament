@@ -1,4 +1,4 @@
-package Java8.Function;
+package com.hwq.fundamment.Java8.Function;
 
 import com.hwq.fundamment.Java8.Function.User;
 
