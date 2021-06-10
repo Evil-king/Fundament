@@ -94,7 +94,7 @@ public class Test {
         }
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
 //        List<Demo> demoList = new ArrayList<>();
 //        Demo demo = new Demo();
 //        demo.setBettingId(1255406760257962035L);
@@ -113,19 +113,43 @@ public class Test {
 //        int[] arr = {4};
 //        operatorData(arr, demoList);
 
-        List<String> originalData = Lists.newArrayList("1291631760086216707&双面&双面&小","1291631760086216708&双面&双面&单");
+//        List<String> originalData = Lists.newArrayList("1291631760086216707&双面&双面&小","1291631760086216708&双面&双面&单");
+//
+//        List<String> dbData = Lists.newArrayList("1291631760086216706&双面&双面&大","1291631760086216707&双面&双面&小","1291631760086216708&双面&双面&单","1291631760086216709&双面&双面&双");
+//
+//        for (int i = 0; i < dbData.size(); i++) {
+//            for (int j = 0; j < originalData.size(); j++) {
+//                if(dbData.get(i).equals(originalData.get(j))){
+//                    dbData.remove(i);
+//                }
+//            }
+//        }
+//        log.info("originalData={}", JSON.toJSON(originalData));
+//        log.info("dbData={}", JSON.toJSON(dbData));
 
-        List<String> dbData = Lists.newArrayList("1291631760086216706&双面&双面&大","1291631760086216707&双面&双面&小","1291631760086216708&双面&双面&单","1291631760086216709&双面&双面&双");
+        Object obj = new Object();
 
-        for (int i = 0; i < dbData.size(); i++) {
-            for (int j = 0; j < originalData.size(); j++) {
-                if(dbData.get(i).equals(originalData.get(j))){
-                    dbData.remove(i);
+        Thread thread1 = new Thread(() -> {
+            synchronized (obj) {
+                try {
+                    obj.wait();
+                    System.out.println("Thread 1");
+                } catch (Exception e) {
+                    e.printStackTrace();
                 }
             }
-        }
-        log.info("originalData={}", JSON.toJSON(originalData));
-        log.info("dbData={}", JSON.toJSON(dbData));
+        });
+        thread1.start();
+        Thread.sleep(1000);
+
+        Thread thread2 = new Thread(() -> {
+            synchronized (obj) {
+                obj.notify();
+                System.out.println("Thread 2");
+
+            }
+        });
+        thread2.start();
     }
 
     @Data
