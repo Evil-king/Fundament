@@ -20,7 +20,8 @@ public class BinaryTreeDemo {
         binaryTree.setRoot(root);
         root.setLeft(node2);
         root.setRight(node3);
-        node3.setLeft(node5);
+        node2.setRight(node5);
+//        node3.setLeft(node5);
         node3.setRight(node4);
 
         //前序遍历
@@ -64,7 +65,7 @@ public class BinaryTreeDemo {
 //        }
         System.out.println("删除前，前序列遍历");
         binaryTree.preOrder();
-        binaryTree.delNode1(3);
+        binaryTree.delNode1(2);
         System.out.println("删除后，前序列遍历");
         binaryTree.preOrder();
     }
@@ -362,14 +363,16 @@ class HeroNode {
         }
 
         if (this.right != null && this.left == null && this.no == no) {
-           this.right.setNo(no);
-           this.right.setName(this.getName());
+           this.setNo(this.right.getNo());
+           this.setName(this.right.getName());
+           this.right = null;
             return;
         }
 
         if (this.right == null && this.left != null && this.no == no) {
-            this.left.setNo(no);
-            this.left.setName(this.getName());
+            this.setNo(this.left.getNo());
+            this.setName(this.left.getName());
+            this.left = null;
             return;
         }
 
