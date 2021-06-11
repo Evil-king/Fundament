@@ -16,7 +16,7 @@ public class ArrBinaryTreeDemo {
     }
 }
 
-//编写一个ArrBinaryTree，实现顺序存储二叉树便利
+//编写一个ArrBinaryTree，实现顺序存储二叉树遍历
 class ArrBinaryTree {
     private int[] arr;
 
