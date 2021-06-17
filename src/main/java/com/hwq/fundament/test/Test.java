@@ -127,29 +127,33 @@ public class Test {
 //        log.info("originalData={}", JSON.toJSON(originalData));
 //        log.info("dbData={}", JSON.toJSON(dbData));
 
-        Object obj = new Object();
+//        Object obj = new Object();
+//
+//        Thread thread1 = new Thread(() -> {
+//            synchronized (obj) {
+//                try {
+//                    obj.wait();
+//                    System.out.println("Thread 1");
+//                } catch (Exception e) {
+//                    e.printStackTrace();
+//                }
+//            }
+//        });
+//        thread1.start();
+//        Thread.sleep(1000);
+//
+//        Thread thread2 = new Thread(() -> {
+//            synchronized (obj) {
+//                obj.notify();
+//                System.out.println("Thread 2");
+//
+//            }
+//        });
+//        thread2.start();
 
-        Thread thread1 = new Thread(() -> {
-            synchronized (obj) {
-                try {
-                    obj.wait();
-                    System.out.println("Thread 1");
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-            }
-        });
-        thread1.start();
-        Thread.sleep(1000);
-
-        Thread thread2 = new Thread(() -> {
-            synchronized (obj) {
-                obj.notify();
-                System.out.println("Thread 2");
-
-            }
-        });
-        thread2.start();
+        for (int i = 0; i < 2; i++) {
+            System.out.println(IdWorker.getId());
+        }
     }
 
     @Data
