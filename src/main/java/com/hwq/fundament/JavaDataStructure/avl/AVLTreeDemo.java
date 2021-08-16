@@ -30,6 +30,8 @@ public class AVLTreeDemo {
 class AVLTree {
     private Node root;
 
+
+
     public Node getRoot() {
         return root;
     }
