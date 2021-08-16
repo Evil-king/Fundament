@@ -1,7 +1,5 @@
 package com.hwq.fundament.JavaDataStructure.tree;
 
-import java.net.HttpRetryException;
-
 /**
  * @Auther: Administrator
  * @Date: 2020/3/9 0009 22:29
@@ -66,27 +64,11 @@ public class BinaryTreeDemo {
 //            System.out.printf("没有找到 no = %d 的英雄",5);
 //        }
 
-<<<<<<< HEAD:src/main/java/com/hwq/fundamment/JavaDataStructure/tree/BinaryTreeDemo.java
-        //测试删除结点
-//        System.out.println("删除前，前序遍历");
-//        binaryTree.preOrder(); // 1 2 3 5 4
-//        binaryTree.delNode(3);
-//        System.out.println("删除后，前序遍历");
-//        binaryTree.preOrder();// 1 2 3 4
-
-        //测试删除非叶子结点
-        System.out.println("删除前，前序遍历");
-        binaryTree.preOrder(); // 1 2 3 5 4
-        binaryTree.delNode2(3);
-        System.out.println("删除后，前序遍历");
-        binaryTree.preOrder();// 1 2 5 4
-=======
 //        System.out.println("删除前，前序列遍历");
 //        binaryTree.preOrder();
 //        binaryTree.delNode1(2);
 //        System.out.println("删除后，前序列遍历");
 //        binaryTree.preOrder();
->>>>>>> 4796aa8ce33fe7e2af6e0c10e1a1d283f3f226e2:src/main/java/com/hwq/fundament/JavaDataStructure/tree/BinaryTreeDemo.java
     }
 }
 
@@ -155,10 +137,6 @@ class BinaryTree {
     //删除结点
     public void delNode(int no) {
         if (root != null) {
-<<<<<<< HEAD:src/main/java/com/hwq/fundamment/JavaDataStructure/tree/BinaryTreeDemo.java
-            //这里要判断root是不是要删除的结点
-=======
->>>>>>> 4796aa8ce33fe7e2af6e0c10e1a1d283f3f226e2:src/main/java/com/hwq/fundament/JavaDataStructure/tree/BinaryTreeDemo.java
             if (root.getNo() == no) {
                 root = null;
             } else {
@@ -166,24 +144,6 @@ class BinaryTree {
                 root.delNode(no);
             }
         } else {
-<<<<<<< HEAD:src/main/java/com/hwq/fundamment/JavaDataStructure/tree/BinaryTreeDemo.java
-            System.out.println("空树，不能为空");
-        }
-    }
-
-    //删除非叶子结点
-    public void delNode2(int no) {
-        if (root != null) {
-            //这里要判断root是不是要删除的结点
-            if (root.getNo() == no && root.getLeft() != null && root.getRight() != null) {
-                root = root.getLeft();
-            } else {
-                //递归删除
-                root.delNode2(no);
-            }
-        } else {
-            System.out.println("空树，不能为空");
-=======
             System.out.println("空树，不能删除");
         }
     }
@@ -199,7 +159,6 @@ class BinaryTree {
             }
         } else {
             System.out.println("空树，不能删除");
->>>>>>> 4796aa8ce33fe7e2af6e0c10e1a1d283f3f226e2:src/main/java/com/hwq/fundament/JavaDataStructure/tree/BinaryTreeDemo.java
         }
     }
 
@@ -369,25 +328,6 @@ class HeroNode {
         return resNode;
     }
 
-<<<<<<< HEAD:src/main/java/com/hwq/fundamment/JavaDataStructure/tree/BinaryTreeDemo.java
-    //删除结点
-    public void delNode(int no) {
-        //如果当前结点的左子结点不为空并且左子结点就是要删除的节点
-        if (this.left != null && this.left.no == no) {
-            this.left = null;
-            return;
-        }
-        //如果当前结点的右子结点不为空并且右子结点就是要删除的结点
-        if (this.right != null && this.right.no == no) {
-            this.right = null;
-            return;
-        }
-        //我们需要向左子结点递归删除
-        if (this.left != null) {
-            this.left.delNode(no);
-        }
-        //我们需要向右子结点递归删除
-=======
     //递归删除结点
     //1、如果删除的节点是叶子节点，则删除该节点
     //2、如果删除的节点是非叶子节点，则删除该子树
@@ -409,31 +349,11 @@ class HeroNode {
         if (this.left != null) {
             this.left.delNode(no);
         }
->>>>>>> 4796aa8ce33fe7e2af6e0c10e1a1d283f3f226e2:src/main/java/com/hwq/fundament/JavaDataStructure/tree/BinaryTreeDemo.java
         if (this.right != null) {
             this.right.delNode(no);
         }
     }
 
-<<<<<<< HEAD:src/main/java/com/hwq/fundamment/JavaDataStructure/tree/BinaryTreeDemo.java
-    //删除非叶子结点
-    public void delNode2(int no) {
-        //判断要删除的结点是否有叶子结点
-        if (this.left != null  && this.right != null ) {
-            if(this.left.no == no){
-
-            }
-            this.no = no;
-            return;
-        }
-        //如果当前结点的左子结点不为空并且左子结点就是要删除的节点
-        if (this.left != null && this.left.no == no) {
-            delNode2(no);
-        }
-        //如果当前结点的右子结点不为空并且右子结点就是要删除的结点
-        if (this.right != null && this.right.no == no) {
-            delNode2(no);
-=======
 
     public void delNode1(int no) {
         if (this.left != null && this.right != null && this.no == no) {
@@ -444,9 +364,9 @@ class HeroNode {
         }
 
         if (this.right != null && this.left == null && this.no == no) {
-           this.setNo(this.right.getNo());
-           this.setName(this.right.getName());
-           this.right = null;
+            this.setNo(this.right.getNo());
+            this.setName(this.right.getName());
+            this.right = null;
             return;
         }
 
@@ -462,7 +382,6 @@ class HeroNode {
         }
         if (this.right != null) {
             this.right.delNode1(no);
->>>>>>> 4796aa8ce33fe7e2af6e0c10e1a1d283f3f226e2:src/main/java/com/hwq/fundament/JavaDataStructure/tree/BinaryTreeDemo.java
         }
     }
 }
