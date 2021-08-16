@@ -1,2 +1,2 @@
 org.springframework.boot.SpringApplicationRunListener=\
-com.hwq.fundamment.springboot.MyEventPublishingRunListener
+com.hwq.fundament.springboot.MyEventPublishingRunListener
