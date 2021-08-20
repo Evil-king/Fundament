@@ -11,9 +11,9 @@ import java.util.concurrent.locks.ReentrantLock;
  * 针对Demo的改进 弃用wait/notify 该用condition
  * </p>
  */
-public class ConditionDemo {
 
-    private int signal;
+class ShareResource {
+    private int flag = 1;
 
     Lock lock = new ReentrantLock();
 
@@ -21,125 +21,87 @@ public class ConditionDemo {
     Condition b = lock.newCondition();
     Condition c = lock.newCondition();
 
-    public void a() {
+    public void print5(int loop) throws InterruptedException {
         lock.lock();
-        while (signal != 0) {
-            try {
+        try {
+            while (flag != 1) {
                 a.await();
-            } catch (InterruptedException e) {
-                e.printStackTrace();
             }
+            for (int i = 1; i <= 5; i++) {
+                System.out.println(Thread.currentThread() + ":: " + i + ":轮数:" + loop);
+            }
+            flag = 2;
+            b.signal(); //通知B
+        } finally {
+            lock.unlock();
         }
-        System.out.println("a");
-        signal++;
-        b.signal();
-        lock.unlock();
     }
 
-    public void b() {
+    public void print10(int loop) throws InterruptedException {
         lock.lock();
-        while (signal != 1) {
-            try {
+        try {
+            while (flag != 2) {
                 b.await();
-            } catch (InterruptedException e) {
-                e.printStackTrace();
             }
+            for (int i = 1; i <= 10; i++) {
+                System.out.println(Thread.currentThread() + ":: " + i + ":轮数:" + loop);
+            }
+            flag = 3;
+            c.signal();//通知C
+        } finally {
+            lock.unlock();
         }
-        System.out.println("b");
-        signal++;
-        c.signal();
-        lock.unlock();
     }
 
-    public void c() {
+    public void print15(int loop) throws InterruptedException {
         lock.lock();
-        while (signal != 2) {
-            try {
+        try {
+            while (flag != 3) {
                 c.await();
-            } catch (InterruptedException e) {
-                e.printStackTrace();
             }
-        }
-        System.out.println("c");
-        signal = 0;
-        a.signal();
-        lock.unlock();
-    }
-
-    ;
-
-    static class A implements Runnable {
-        private ConditionDemo demo;
-
-        public A(ConditionDemo demo) {
-            this.demo = demo;
-        }
-
-        @Override
-        public void run() {
-            while (true) {
-                demo.b();
-                try {
-                    Thread.sleep(1000);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
+            for (int i = 1; i <= 15; i++) {
+                System.out.println(Thread.currentThread() + ":: " + i + ":轮数:" + loop);
             }
+            flag = 1;
+            a.signal();//通知A
+        } finally {
+            lock.unlock();
         }
     }
+}
 
-    static class B implements Runnable {
-
-        private ConditionDemo demo;
-
-        public B(ConditionDemo demo) {
-            this.demo = demo;
-        }
-
-        @Override
-        public void run() {
-            while (true) {
-                demo.c();
-                try {
-                    Thread.sleep(1000);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
-            }
-        }
-    }
-
-    static class C implements Runnable {
-
-        private ConditionDemo demo;
-
-        public C(ConditionDemo demo) {
-            this.demo = demo;
-        }
-
-        @Override
-        public void run() {
-            while (true) {
-                demo.a();
-                try {
-                    Thread.sleep(1000);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
-            }
-        }
-    }
-
+public class ConditionDemo {
     public static void main(String[] args) {
-        ConditionDemo d = new ConditionDemo();
+        ShareResource shareResource = new ShareResource();
+        new Thread(() -> {
+            for (int i = 1; i <= 10; i++) {
+                try {
+                    shareResource.print5(i);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }
+        }, "AA").start();
 
-        A a = new A(d);
-        B b = new B(d);
-        C c = new C(d);
+        new Thread(() -> {
+            for (int i = 1; i <= 10; i++) {
+                try {
+                    shareResource.print10(i);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }
+        }, "BB").start();
 
-        new Thread(a).start();
-        new Thread(b).start();
-        new Thread(c).start();
+        new Thread(() -> {
+            for (int i = 1; i <= 10; i++) {
+                try {
+                    shareResource.print15(i);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }
+        }, "CC").start();
 
     }
 }

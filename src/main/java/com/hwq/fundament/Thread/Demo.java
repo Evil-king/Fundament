@@ -5,10 +5,10 @@ package com.hwq.fundament.Thread;
  * @date 2019/04/14
  * <p>
  * 实现线程a执行完线程b执行，线程b执行完线程c执行 这样一个效果
+ * 这里需要注意一下的是  a、b、c方法中的判断一定要用while不然会出现假唤醒的问题
  * </p>
  */
-public class Demo {
-
+class ShareThreadSynchronized {
     private int signal;
 
     public synchronized void a() {
@@ -24,8 +24,6 @@ public class Demo {
         notifyAll();
     }
 
-    ;
-
     public synchronized void b() {
         while (signal != 1) {
             try {
@@ -39,8 +37,6 @@ public class Demo {
         notifyAll();
     }
 
-    ;
-
     public synchronized void c() {
         while (signal != 2) {
             try {
@@ -53,81 +49,42 @@ public class Demo {
         signal = 0;
         notifyAll();
     }
+}
 
-    ;
-
-    static class A implements Runnable {
-        private Demo demo;
-
-        public A(Demo demo) {
-            this.demo = demo;
-        }
-
-        @Override
-        public void run() {
-            while (true) {
-                demo.b();
-                try {
-                    Thread.sleep(1000);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
-            }
-        }
-    }
-
-    static class B implements Runnable {
-
-        private Demo demo;
-
-        public B(Demo demo) {
-            this.demo = demo;
-        }
-
-        @Override
-        public void run() {
-            while (true) {
-                demo.c();
-                try {
-                    Thread.sleep(1000);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
-            }
-        }
-    }
-
-    static class C implements Runnable {
-
-        private Demo demo;
-
-        public C(Demo demo) {
-            this.demo = demo;
-        }
-
-        @Override
-        public void run() {
-            while (true) {
-                demo.a();
-                try {
-                    Thread.sleep(1000);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
-            }
-        }
-    }
-
+public class Demo {
     public static void main(String[] args) {
-        Demo d = new Demo();
+        ShareThreadSynchronized shareThreadSynchronized = new ShareThreadSynchronized();
+        new Thread(() -> {
+            for (int i = 0; i <=2; i++) {
+                shareThreadSynchronized.b();
+                try {
+                    Thread.sleep(1000);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }
+        }, "AA").start();
 
-        A a = new A(d);
-        B b = new B(d);
-        C c = new C(d);
+        new Thread(() -> {
+            for (int i = 0; i <=2; i++) {
+                shareThreadSynchronized.c();
+                try {
+                    Thread.sleep(1000);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }
+        }, "BB").start();
 
-        new Thread(a).start();
-        new Thread(b).start();
-        new Thread(c).start();
-
+        new Thread(() -> {
+            for (int i = 0; i <=2; i++) {
+                shareThreadSynchronized.a();
+                try {
+                    Thread.sleep(1000);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }
+        }, "CC").start();
     }
 }
