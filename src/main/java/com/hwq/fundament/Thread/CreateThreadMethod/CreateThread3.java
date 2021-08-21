@@ -1,4 +1,4 @@
-package com.hwq.fundament.Thread;
+package com.hwq.fundament.Thread.CreateThreadMethod;
 
 import java.util.concurrent.FutureTask;
 
