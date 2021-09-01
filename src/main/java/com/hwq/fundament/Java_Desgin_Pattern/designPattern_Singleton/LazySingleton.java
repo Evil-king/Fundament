@@ -7,7 +7,7 @@ package com.hwq.fundament.Java_Desgin_Pattern.designPattern_Singleton;
  */
 public class LazySingleton {
 
-    public static LazySingleton lazySingleton = null;
+    public static LazySingleton lazySingleton;
 
     private LazySingleton(){
 

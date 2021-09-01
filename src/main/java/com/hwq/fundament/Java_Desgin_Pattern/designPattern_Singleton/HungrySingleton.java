@@ -1,13 +1,11 @@
 package com.hwq.fundament.Java_Desgin_Pattern.designPattern_Singleton;
 
-import java.io.Serializable;
-
 /**
  * @author hwq
  * @date 2019/10/20
- * 饿汉氏单利模式
+ * 饿汉氏((静态变量)
  */
-public class HungrySingleton implements Serializable {
+public class HungrySingleton  {
 
     private HungrySingleton(){}
 
