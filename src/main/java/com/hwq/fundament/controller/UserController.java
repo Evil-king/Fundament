@@ -26,8 +26,8 @@ public class UserController {
     @Value("${my.fullName}")
     private String name;
 
-    @Autowired
-    private RedisTemplate redisTemplate;
+//    @Autowired
+//    private RedisTemplate redisTemplate;
 
 //    @Autowired
 //    private JedisResourcePool jedisResourcePool;

@@ -12,10 +12,10 @@ import java.util.concurrent.TimeUnit;
  */
 @Component
 public class CacheTemplate<T> {
-    @Autowired
-    private RedisBloomFilter redisBloomFilter;
+//    @Autowired
+//    private RedisBloomFilter redisBloomFilter;
 
-    public T redisFindCache(String key, long expire, TimeUnit unit, CacheLoadble<T> cacheLoadble, boolean b) {
-        return null;
-    }
+//    public T redisFindCache(String key, long expire, TimeUnit unit, CacheLoadble<T> cacheLoadble, boolean b) {
+//        return null;
+//    }
 }

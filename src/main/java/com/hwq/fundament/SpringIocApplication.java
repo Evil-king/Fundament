@@ -13,7 +13,7 @@ public class SpringIocApplication {
 
     public static void main(String[] args) {
         AnnotationConfigApplicationContext applicationContext = new AnnotationConfigApplicationContext(AppConfig.class);
-
-        System.out.println(applicationContext.getBean(Example.class));
+        Example bean = applicationContext.getBean(Example.class);
+        System.out.println(bean);
     }
 }
