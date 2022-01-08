@@ -8,14 +8,14 @@ import cn.hutool.json.JSONArray;
 import cn.hutool.json.JSONObject;
 import cn.hutool.json.JSONUtil;
 import com.alibaba.fastjson.JSON;
-import com.google.common.collect.HashBasedTable;
-import com.google.common.collect.Lists;
+
 import com.hwq.fundament.tools.IdWorker;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.assertj.core.util.Lists;
 import org.springframework.data.relational.core.sql.In;
 
 import java.time.LocalDate;
@@ -79,18 +79,33 @@ public class Test {
             if (map.containsKey(result)) {
                 return new int[]{map.get(result), i};
             }
-            map.put(nums[i],i);
+            map.put(nums[i], i);
         }
         return null;
     }
 
 
     public static void main(String[] args) {
-        int[] nums = new int[]{3, 2, 3};
-        int target = 6;
-        int[] ints = twoSum(nums, target);
-        for (int element : ints) {
-            System.out.println(element);
+//        int[] nums = new int[]{3, 2, 3};
+//        int target = 6;
+//        int[] ints = twoSum(nums, target);
+//        for (int element : ints) {
+//            System.out.println(element);
+//        }
+
+        int count = 0;
+        int[] num = new int[]{1, 3, 5, 6, 3, 7, 9, 0, 3};
+        for (int i = 0; i < num.length; i++) {
+//            for (int j = 1; j < num.length; j++) {
+//                if(num[i] == num[j]){
+//                    System.out.println(j);
+//                }
+//            }
+            if(num[i] == 3){
+                count++;
+                System.out.println(i);
+            }
         }
+        System.out.println(count);
     }
 }
