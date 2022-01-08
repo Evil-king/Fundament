@@ -16,7 +16,7 @@ import org.springframework.stereotype.Component;
 @RocketMQMessageListener(topic = "Topic-game", consumerGroup = "Topic-Game-consumerGroup")
 public class DemoListener implements RocketMQListener<MessageExt> {
     // 消费失败最大重试次数
-    @Value("${rocketmq.maxReconsumeTimes}")
+    @Value("1")
     private String maxReconsumeTimes;
 
     @Override

@@ -23,7 +23,7 @@ public class UserController {
 //        return user;
 //    }
 
-    @Value("${my.fullName}")
+    @Value("fox")
     private String name;
 
 //    @Autowired
