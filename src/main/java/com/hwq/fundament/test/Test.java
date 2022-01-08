@@ -1,27 +1,9 @@
 package com.hwq.fundament.test;
 
-import cn.hutool.core.date.DateTime;
-import cn.hutool.core.date.DateUtil;
-import cn.hutool.core.util.StrUtil;
-import cn.hutool.http.HttpUtil;
-import cn.hutool.json.JSONArray;
-import cn.hutool.json.JSONObject;
-import cn.hutool.json.JSONUtil;
-import com.alibaba.fastjson.JSON;
 
-import com.hwq.fundament.tools.IdWorker;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import lombok.extern.slf4j.Slf4j;
+
+// import lombok.extern.slf4j.Slf4j;
 import org.assertj.core.util.Lists;
-import org.springframework.data.relational.core.sql.In;
-
-import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.time.LocalTime;
-import java.time.format.DateTimeFormatter;
 import java.util.*;
 
 /**
@@ -31,7 +13,7 @@ import java.util.*;
  * int a=10;中的a在被调用之前就已经创建并初始化，在调用func方法时，他被当做参数传入，所以这个a是实参。
  * 而func(int a)中的a只有在func被调用时它的生命周期才开始，而在func调用结束之后，它也随之被JVM释放掉，，所以这个a是形参
  */
-@Slf4j
+// @Slf4j
 public class Test {
 //    public static void fun(int a) {
 //        a = 20;
@@ -60,7 +42,7 @@ public class Test {
         List<String> stringList = Lists.newArrayList();
         if ("Test".equals(modelCode)) {
             Integer[] testSix = new Integer[]{1, 2, 3, 4, 5, 6, 49};
-            List list = new ArrayList(Arrays.asList(testSix));
+            List<Integer> list = new ArrayList<Integer>(Arrays.asList(testSix));
             for (int i = 0; i < list.size(); i++) {
                 if ((Integer) list.get(i) < 10) {
                     stringList.add("0" + list.get(i) + "");
