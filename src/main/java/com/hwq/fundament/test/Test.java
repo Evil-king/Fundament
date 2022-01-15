@@ -1,5 +1,5 @@
 package com.hwq.fundament.test;
-import lombok.extern.slf4j.Slf4j;
+// import lombok.extern.slf4j.Slf4j;
 
 
 /**
@@ -9,7 +9,7 @@ import lombok.extern.slf4j.Slf4j;
  * int a=10;中的a在被调用之前就已经创建并初始化，在调用func方法时，他被当做参数传入，所以这个a是实参。
  * 而func(int a)中的a只有在func被调用时它的生命周期才开始，而在func调用结束之后，它也随之被JVM释放掉，，所以这个a是形参
  */
-@Slf4j
+// @Slf4j
 public class Test {
    public static void fun(int a) {
        a = 20;

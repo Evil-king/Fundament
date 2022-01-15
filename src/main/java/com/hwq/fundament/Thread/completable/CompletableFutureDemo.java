@@ -19,7 +19,7 @@ public class CompletableFutureDemo {
         CompletableFuture<Integer> completableFuture2 = CompletableFuture.supplyAsync(()->{
             System.out.println(Thread.currentThread().getName()+" : completableFuture2");
             //模拟异常
-            int i = 10/0;
+            // int i = 10/0;
             return 1024;
         });
         completableFuture2.whenComplete((t,u)->{
