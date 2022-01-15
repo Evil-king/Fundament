@@ -16,7 +16,7 @@ public class Main {
        person.setAge("10");
        person.setName("fox");
 
-       Man man1 = man.toDo(person);
+       Man<Person> man1 = man.toDo(person);
        log.info("man1={}", JSONObject.toJSON(man1));
    }
 }
