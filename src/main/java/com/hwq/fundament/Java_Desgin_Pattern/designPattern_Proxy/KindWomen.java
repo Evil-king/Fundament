@@ -5,7 +5,7 @@ package com.hwq.fundament.Java_Desgin_Pattern.designPattern_Proxy;
  */
 public interface KindWomen {
 
-    public void makeEyesWithMen();
+    void makeEyesWithMen();
 
-    public void happyWithMan();
+    void happyWithMan();
 }
